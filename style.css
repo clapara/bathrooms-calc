@@ -92,13 +92,13 @@ figcaption {
 */
 
 .calc-container {
-    background-color: #f7f7f7;
+    background-color: #a5a3ff;
     /* Calc background is slightly gray and the full width of the page */
     padding: 22px 0;
     /* 22px of vertical padding only */
 }
 
-.calculator .row .item img {
+.calculator .row .item {
     margin: 5px auto;
     /* Air out above and below the image for each item */
 }
@@ -109,7 +109,7 @@ figcaption {
 }
 
 .qty_container>div {
-    flex-basis: 90%;
+    flex-basis: 10%;
     /* Allow the input field in the qty container to take up 90% of the width */
 }
 
@@ -127,10 +127,7 @@ figcaption {
 }
 
 
-/**
-* The unit space has a gray background and takes up the remaining 10% of space as an indicator
-* to  the user how qty works
-*/
+/* dollar sign and unit */
 
 .qty_container .unit {
     flex-basis: 10%;
@@ -139,49 +136,31 @@ figcaption {
     text-align: center;
 }
 
+.qty_container .dollarsign {
+    flex-basis: 10%;
+    background-color: #f7f7f7;
+    padding: 6px 0;
+    text-align: center;
+}
 
-/**
-* The individual stores within each item are hidden by default.
-* We also apply margins to them to air them out
-*/
-
-.peapod,
-.freshdirect,
-.amazon {
+.new-station, .total-stations, .per-residents
+ {
     margin: 5px 0;
     display: none;
 }
 
-.peapod.active,
-.freshdirect.active,
-.amazon.active {
+.new-station.active,
+.total-stations.active,
+.per-residents.active {
     display: block;
+    margin-left: 100px;
+    margin-top: 10px;
 }
 
-.cheap {
-    font-weight: bold;
-    font-size: 1.8em;
-    color: rgb(13, 92, 13);
-}
-
-.cheap:after {
-    font-family: FontAwesome;
-    content: "\f00c";
-}
-
-
-/**
-* Remove  the  default margin on the H3
-*/
 
 .calculator h3 {
     margin: 0;
 }
-
-
-/**
-* Create negative space beneath each row
-*/
 
 .calculator .row {
     margin-bottom: 15px;
@@ -189,17 +168,9 @@ figcaption {
 }
 
 
-/**
-* Hide the totals by default until there's been input
-* Give the totals row a slightly different background and 100% flex-basis 
-*/
 
-.calculator .row.total {
-    display: none;
-    background-color: #ccc;
-    padding: 10px;
-    flex-basis: 100%;
-}
+
+
 
 
 /*********************************************************************
@@ -213,11 +184,7 @@ figcaption {
     * Adding the flexbox styles to calculator in the tablet media query allows mobile to stack
     * and for the flexbox to take over by default on larger devices
     */
-    .calculator {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-    }
+    
 }
 
 

@@ -22,31 +22,32 @@ inputs.forEach(function (input) {
             const qty = parseFloat(e.target.value);
             const this_row = this_input.closest(".row");
 
-                const amazon = this_row.querySelector(".amazon");
-                const amazon_span = amazon.querySelector("span");
-                const amazon_price = parseFloat(amazon.dataset.price);
-                const amazon_cost = qty * amazon_price;
+                const newstation = this_row.querySelector(".new-station");
+                const new_span = newstation.querySelector("span");
+                const new_price = parseFloat(newstation.dataset.price);
+                const new_number = qty / new_price;
                 
-                amazon_span.innerHTML = round_number(amazon_cost); //inner HTML updates the span 
-                amazon.classList.add("active");
+                new_span.innerHTML = round_number(new_number); //inner HTML updates the span 
+                newstation.classList.add("active");
 
-                const freshdirect = this_row.querySelector(".freshdirect");
-                const freshdirect_span = freshdirect.querySelector("span");
-                const freshdirect_price = parseFloat(freshdirect.dataset.price);
-                const freshdirect_cost = qty * freshdirect_price;
+               const total = this_row.querySelector(".total-stations");
+                const total_span = total.querySelector("span");
+                const current = parseFloat(total.dataset.price);
+                const total_num = qty / new_price + current;
                 
-                freshdirect_span.innerHTML = round_number(freshdirect_cost);
-                freshdirect.classList.add("active");
+                total_span.innerHTML = round_number(total_num);
+                total.classList.add("active");
 
-
-                const peapod = this_row.querySelector(".peapod"); 
-                const peapod_span = peapod.querySelector("span");
-                const peapod_price = parseFloat(peapod.dataset.price);
-                const peapod_cost = qty * peapod_price;
+               const capita = this_row.querySelector(".per-residents"); 
+                const capita_span = capita.querySelector("span");
+                const per_residents =  total_num / 8400000 * 100000 ;
                 
-                peapod_span.innerHTML = round_number(peapod_cost);
-                peapod.classList.add("active");
+                capita_span.innerHTML = round_number(per_residents);
+                capita.classList.add("active");
 
+                
+
+                /*
                 let cheap = false; 
                 
                     if (freshdirect_cost < amazon_cost && freshdirect_cost < peapod_cost) {
@@ -69,7 +70,7 @@ inputs.forEach(function (input) {
                     
                     if(cheap) { 
                     cheap.classList.add("cheap");
-                    }
+                    } */
 
                     
     });
